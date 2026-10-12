@@ -80,7 +80,14 @@ Unzip them to `path/to/your/dataset/`, so that it contains `movi_c/`, `movi_d/` 
 
 ## 🧠 Model Checkpoints
 
-**The checkpoints (@ random seeds 42, 43 and 44) of all DSSA models** will be released soon. All backbones are DINO2 ViT-S/14.
+**The checkpoints (@ random seeds 42, 43 and 44) of all DSSA models** are available as [releases](https://github.com/sieutrstd-pixel/DSSA/releases/tag/weights). All backbones are DINO2 ViT-S/14.
+- [dssa_c-movi_c.zip](https://github.com/sieutrstd-pixel/DSSA/releases/download/weights/dssa_c-movi_c.zip): object discovery on MOVi-C.
+- [dssa_c-movi_d.zip](https://github.com/sieutrstd-pixel/DSSA/releases/download/weights/dssa_c-movi_d.zip): object discovery on MOVi-D.
+- [dssa_r-ytvis_hq.zip](https://github.com/sieutrstd-pixel/DSSA/releases/download/weights/dssa_r-ytvis_hq.zip): object discovery on YTVIS-HQ.
+- [dssa_r_recogn-ytvis_hq.zip](https://github.com/sieutrstd-pixel/DSSA/releases/download/weights/dssa_r_recogn-ytvis_hq.zip): object recognition on YTVIS-HQ, using the local slots.
+- [dssa_r_recogn-ytvis_hq-identity.zip](https://github.com/sieutrstd-pixel/DSSA/releases/download/weights/dssa_r_recogn-ytvis_hq-identity.zip): object recognition on YTVIS-HQ, using the identity slots.
+
+Download and unzip them to `weights/`, which is organized as:
 
 ```shell
 - weights/
@@ -110,7 +117,7 @@ python train.py --seed 42 --cfg_file config-dssa/dssa_c-movi_c.py --data_dir pat
 
 **(4) Evaluate**:
 ```shell
-python eval.py --cfg_file config-dssa/dssa_c-movi_c.py --data_dir path/to/your/dataset --ckpt_file path/to/checkpoint.pth
+python eval.py --cfg_file config-dssa/dssa_c-movi_c.py --data_dir path/to/your/dataset --ckpt_file weights/dssa_c-movi_c/42_0038.pth
 ```
 
 Replace `--cfg_file` with any config in `config-dssa/`. For object recognition, `train.py` also takes the pretrained DSSA checkpoint via `--ckpt_file`.
@@ -125,7 +132,6 @@ This repo is built upon [RandSF.Q](https://github.com/Genera1Z/RandSF.Q) (AAAI 2
 
 ## 🤗 Contact
 
-<!-- TODO: add contact email / page -->
 If you have any issues with this repo, please open an issue.
 
 
